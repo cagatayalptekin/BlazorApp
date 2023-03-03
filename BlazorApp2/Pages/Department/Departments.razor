@@ -1,0 +1,88 @@
+﻿@page "/Departments"
+@using BlazorApp2.Services;
+@using BlazorApp2.Data.Dtos;
+@using BlazorApp2.Data.Models;
+@inject DepartmentService departmentService;
+@inject UserService userService;
+@if (departments is null)
+{
+    <p><em>Loading... !</em></p>
+}
+else
+{
+    <a  href="AddDepartment">
+        <span class="oi oi-plus" aria-hidden="true">Add New</span>
+
+    </a>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Manager</th>
+                <th>Location</th>
+                <th>Budget</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in departments)
+            {
+                <tr>
+                 
+                    <td>@item.Name</td>
+
+                    @if(item.Manager!=0&&item.user!= null)
+                    {
+                        <td>@item.user.Name</td>
+                    }
+                    else
+                    {
+                        <td>No manager</td>
+                    }
+                    
+                    <td>@item.Location</td>
+                    <td>@item.Budget</td>
+
+                    <td>
+                        <a class="nav-link" href="EditDepartment/@item.Id">
+                            <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                        </a>
+                        <a class="nav-link" href="DeleteDepartment/@item.Id">
+                            <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    
+
+
+@code {
+    List<DepartmentDto> departments;
+    List<UserDto> users;
+    protected override async Task OnInitializedAsync()
+    {
+        departments = await Task.Run(() => departmentService.GetAllDepartments());
+      //  users = await Task.Run(() => userService.GetAllUsersAsync());
+        foreach (var item in departments)
+        
+            if(item.Manager!= 0)
+            {
+                var user = userService.GetUser(item.Manager);
+                if(user!=null)
+                {
+                    item.user=user;
+                }
+                
+            }
+            
+        }
+    }
+}

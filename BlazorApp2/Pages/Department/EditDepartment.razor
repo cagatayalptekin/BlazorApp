@@ -1,0 +1,77 @@
+﻿@page "/EditDepartment/{Id}"
+@using BlazorApp2.Services;
+@using BlazorApp2.Data.Dtos;
+@using BlazorApp2.Data.Models;
+@inject NavigationManager navigationManager
+@inject UserService userService
+@inject DepartmentService departmentService
+
+
+
+<h2>Edit Department</h2>
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input form="Name" class="form-control" @bind="@department.Name" />
+            </div>
+            <div class="form-group">
+                <label for="Job">Location</label>
+                <input form="Job" class="form-control" @bind="@department.Location" />
+            </div>
+            <div class="form-group">
+                <label for="Age">Budget</label>
+                <input form="Age" class="form-control" @bind="@department.Budget" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Select Manager</label>
+                <select @bind="@department.Manager" class="form-control">
+                    <option value="" selected hidden>Choose here</option>
+                    @foreach (var user in users)
+                    {
+                        <option  value="@user.Id" >@user.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@UpdateDepartment" value="Save" />
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    DepartmentDto department = new DepartmentDto();
+    List<UserDto> users = new List<UserDto>();
+
+
+
+    protected override void OnInitialized()
+    {
+        department =  departmentService.GetDepartment(Convert.ToInt32(Id));
+        users =  userService.GetAllUsers();
+    }
+    protected void UpdateDepartment()
+    {
+        departmentService.UpdateDepartment(department);
+        navigationManager.NavigateTo("Departments");
+    }
+    void Cancel()
+    {
+        navigationManager.NavigateTo("Departments");
+    }
+}

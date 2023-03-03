@@ -1,0 +1,78 @@
+﻿@page "/EditUser/{Id}"
+@using BlazorApp2.Services;
+@using BlazorApp2.Data.Dtos;
+@using BlazorApp2.Data.Models;
+@inject NavigationManager navigationManager
+@inject UserService userService
+@inject DepartmentService departmentService
+
+
+
+<h2>Edit User</h2>
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input form="Name" class="form-control" @bind="@user.Name"/>
+            </div>
+            <div class="form-group">
+                <label for="Job">Job</label>
+                <input form="Job" class="form-control" @bind="@user.Job" />
+            </div>
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input form="Age" class="form-control" @bind="@user.Age" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Select Department</label>
+        <select @bind="@user.deptId" class="form-control">
+            <option value="" selected hidden>Choose here</option>
+            @foreach (var dept in departments)
+            {
+                <option value="@dept.Id">@dept.Name</option>
+            }
+        </select>
+    </div>
+
+
+<div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@UpdateUser" value="Save"/>
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    UserDto user = new UserDto();
+    List<DepartmentDto> departments = new List<DepartmentDto>();
+
+
+   
+    protected override void OnInitialized()
+    {
+        user =  userService.GetUser(Convert.ToInt32(Id));
+        departments =  departmentService.GetAllDepartments();
+    }
+    public void UpdateUser()
+    {
+         userService.UpdateUser(user);
+        navigationManager.NavigateTo("Users");
+    }
+    void Cancel()
+    {
+        navigationManager.NavigateTo("Users");
+    }
+}

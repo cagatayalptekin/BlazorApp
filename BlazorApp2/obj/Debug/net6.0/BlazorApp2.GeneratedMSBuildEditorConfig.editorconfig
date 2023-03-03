@@ -1,0 +1,76 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BlazorApp2
+build_property.RootNamespace = BlazorApp2
+build_property.ProjectDir = C:\Users\cagat\OneDrive - Yildiz Technical University\Masaüstü\BlazorApp2\BlazorApp2\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\cagat\OneDrive - Yildiz Technical University\Masaüstü\BlazorApp2\BlazorApp2
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/Department/AddDepartment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudFxBZGREZXBhcnRtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/Department/DeleteDepartment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudFxEZWxldGVEZXBhcnRtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/Department/Departments.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudFxEZXBhcnRtZW50cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/Department/EditDepartment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudFxFZGl0RGVwYXJ0bWVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/User/AddUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxBZGRVc2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/User/DeleteUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxEZWxldGVVc2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/User/EditUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxFZGl0VXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/User/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxVc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-g438hy8nqh
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-8klt50xt3z
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cagat/OneDrive - Yildiz Technical University/Masaüstü/BlazorApp2/BlazorApp2/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

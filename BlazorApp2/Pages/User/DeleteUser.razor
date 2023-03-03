@@ -1,0 +1,16 @@
+﻿@page "/DeleteUser/{Id}"
+@using BlazorApp2.Services;
+@using BlazorApp2.Data.Dtos;
+@using BlazorApp2.Data.Models;
+@inject UserService userService
+@inject NavigationManager navigationManager
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    protected  override void  OnInitialized()
+    {
+        userService.DeleteUser(Convert.ToInt32(Id));
+        navigationManager.NavigateTo("Users");
+    }
+}

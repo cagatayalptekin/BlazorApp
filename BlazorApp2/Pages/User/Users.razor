@@ -1,0 +1,86 @@
+﻿@page "/Users"
+@using BlazorApp2.Services;
+@using BlazorApp2.Data.Dtos;
+@using BlazorApp2.Data.Models;
+@inject UserService userService;
+@inject DepartmentService departmentService;
+
+@if (users is null)
+{
+    <p><em>Loading... !</em></p>
+}
+else
+{
+    <a  href="AddUser">
+        <span class="oi oi-plus" aria-hidden="true">Add New</span>
+
+    </a>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Age</th>
+                <th>Job</th>
+                <th>Department</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in users)
+            {
+                <tr>
+                   
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Job</td>
+                    @if(item.deptId!=0)
+                    {
+                        <td>@item.dept.Name</td>
+                    }
+                    else
+                    {
+                        <td>No Department</td>
+                    }
+                    
+
+                    <td>
+                        <a class="nav-link" href="EditUser/@item.Id">
+                            <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                        </a>
+                        <a class="nav-link" href="DeleteUser/@item.Id">
+                            <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    
+
+
+@code {
+    List<UserDto> users;
+    protected override async Task OnInitializedAsync()
+    {
+        users = await Task.Run(() => userService.GetAllUsers());
+        foreach (var item in users)
+        
+            if(item.deptId!= 0)
+            {
+                var dept = departmentService.GetDepartment(item.deptId);
+                if (dept != null)
+                {
+                    item.dept = dept;
+                }
+                
+            }
+            
+        }
+    }
+}

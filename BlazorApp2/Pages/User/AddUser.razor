@@ -1,0 +1,81 @@
+﻿@page "/AddUser"
+@using BlazorApp2.Services;
+@using BlazorApp2.Data.Dtos;
+@using BlazorApp2.Data.Models;
+@inject UserService userService
+@inject DepartmentService departmentService
+@inject NavigationManager NavigationManager
+
+<h2>Add User</h2>
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input form="Name" class="form-control" @bind="@user.Name"/>
+            </div>
+            <div class="form-group">
+                <label for="Job">Job</label>
+                <input form="Job" class="form-control" @bind="@user.Job" />
+            </div>
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input form="Age" class="form-control" @bind="@user.Age" />
+            </div>
+
+
+         <div class="form-group">
+                <label>Select Department</label>
+                <select @bind="@user.deptId" class="form-control">
+                 <option value="" selected hidden>Choose here</option>
+                @foreach (var dept in departments)
+                {
+                    <option value="@dept.Id" >@dept.Name</option>
+                }
+            </select>
+         </div>
+            
+  
+        </div>
+    </div>
+
+<div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@CreateUser" value="Save"/>
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@code {
+    UserDto user = new UserDto();
+    List<DepartmentDto> departments=new List<DepartmentDto>();
+
+
+    protected override void  OnInitialized()
+    {
+        departments =  departmentService.GetAllDepartments();
+
+    }
+
+
+    protected  void CreateUser()
+    {
+
+        Console.Write(user);
+
+
+
+         userService.InsertUser(user);
+        NavigationManager.NavigateTo("Users");
+
+    }
+    
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("Users");
+    }
+}
